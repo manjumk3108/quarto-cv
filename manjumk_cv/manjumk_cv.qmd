@@ -1,0 +1,72 @@
+---
+author: Manjunath Mallikarjun Kendhuli
+title: Student
+format:
+  classic-cv-pdf: default
+cvfooter:
+  left: "mr.schochastics.net"
+  right: "github.com/manjumk3108"
+cvcolor: 58748F #without `#`
+cvfont: raleway #texlive fonts like raleway,fetamont,gillius,comfortaa
+cvmeta:
+  - title: Status
+    left: Student in HS Fresenius
+    right: Cologne, Germany
+  - title: Field
+    left: International Business and Management
+    right: http://linkedin.com/in/manjunath-m-kendhuli-399530217
+  - title: Techs
+    left: R, Python, javascript, SQL
+    right: manjukendhuli@gmail.com
+execute:
+  echo: false
+---
+
+```{r}
+#| label: cvevents
+cvevents <- function(tbl, when, what, where, details) {
+
+    command_start <- "\\cvevent"
+
+    res <- paste0(
+        command_start, "{", tbl[[when]], "}", 
+        "{", tbl[[what]], "}",
+        "{", tbl[[where]], "}")
+    
+    tbl[[details]] <- sapply(tbl[[details]], function(x) paste0("{", x, "}", collapse = ","))
+    res <- paste0(res, "{",tbl[[details]],"}")
+
+    cat(res, sep = "\n")
+}
+```
+
+# Summary
+
+Master’s student in Industrial Engineering and International Management with nearly two years of experience as a Technical Consultant. Skilled in database management, system optimization, and implementation projects. Demonstrated expertise in cross-functional collaboration and data-driven problem-solving. Strong analytical, problem-solving, and leadership abilities, aspiring to transition into management roles like Business Data Analysis, Consulting, and Project Management.
+
+# Experience
+
+
+```{r}
+#| label: experience
+#| output: asis
+tibble::tribble(
+    ~role, ~institution, ~dates, ~details, ~tasks,
+    "Assistant System Engineer", "TCS Bengluru, India", "Sep. 2022 - Jun. 2024",
+    "Transparent Social Analytics, Department of Computational Social Science", c("Interacted with clients to gather and analyze requirements, ensuring effective communication and alignment with business needs", "Applied problem-solving techniques to complex tasks, showcasing adaptability and critical thinking in project delivery"),
+    
+) |>
+    cvevents(when = "dates", what = "role", where = "institution", details = "tasks")
+```
+
+# Education
+
+```{r }
+#| label: education
+#| output: asis
+tibble::tribble(
+    ~degree, ~uni, ~loc, ~dates, ~details,
+    "Master's of Science", "Fresenius University of Applied Sciences", "Cologne, Germany", "Aug. 2024 - Sep. 2026", c("Thesis: Project Management in Agile Projects", "Data Analysis Replication")
+) |>
+    cvevents(when = "dates", what = "degree", where = "loc", details = "details")
+```
