@@ -14,7 +14,7 @@ cvmeta:
     right: Cologne, Germany
   - title: Field
     left: International Business and Management
-    right: http://linkedin.com/in/manjunath-m-kendhuli-399530217
+    right: https://linkedin.com/in/manjumk3108
   - title: Techs
     left: R, Python, javascript, SQL
     right: manjukendhuli@gmail.com
