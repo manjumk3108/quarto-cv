@@ -1,6 +1,6 @@
 ---
 author: Manjunath Mallikarjun Kendhuli
-title: Student
+title: Working Student
 format:
   classic-cv-pdf: default
 cvfooter:
